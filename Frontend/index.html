@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weather App</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="searchbar">
+    <div class="welcoming">
+          <div class="icon">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p>Weather App</p>
+          </div>  
+          <div>
+            <button class="login">Sign-in </button>
+            <button class="login">logout <i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>  
+    </div>
+    <div class="welcome"><p> How's the sky looking today </p></div>
+    <form id="searchForm" class="search-box" autocomplete="off">
+      <input id="searchInput" type="text" placeholder="Search any city… (e.g. Lucknow, Paris, Tokyo)" aria-label="Search city">
+      <button type="submit" id="searchBtn">Search</button>
+      <ul id="suggestions" class="suggestions" hidden></ul>
+    </form>
+    <p id="msg" class="msg" hidden></p>
+  </header>
+
+
+  <section class="hero">
+    <div class="card current">
+      <div class="temp-row">
+        <span id="temp" class="temp">--</span>
+        <span class="units">
+          <button id="unitC" class="unit active">°C</button>
+          <button id="unitF" class="unit">°F</button>
+        </span>
+        <div class="cond"><span id="condIcon">☁️</span><span id="condText">--</span></div>
+      </div>
+      <h1 id="city">Loading…</h1>
+      <p id="region" class="sub"></p>
+      <button id="changeLoc" class="change" type="button">📍 Change Location</button>
+    </div>
+
+    <div class="card clock">
+      <div id="time" class="time">--:--</div>
+      <div id="date" class="date"></div>
+      <div class="tz" id="tzList">
+        <button data-tz="local" class="active">LOC</button>
+        <button data-tz="UTC">UTC</button>
+        <button data-tz="Asia/Kolkata">IST</button>
+        <button data-tz="America/New_York">EST</button>
+        <button data-tz="America/Los_Angeles">PST</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom">
+    <div class="panel left">
+      <nav class="tabs" id="tabs">
+        <button data-tab="today" class="active">Today's Forecast</button>
+        <button data-tab="hourly">Hourly Forecast</button>
+        <button data-tab="daily">Daily Forecast</button>
+      </nav>
+      <div id="tabBody"></div>
+    </div>
+
+    <div class="panel right">
+      <div class="right-head"><span>Today's</span><span>⚙</span></div>
+      <div class="slots">
+        <div id="slots" class="slot-row"></div>
+        <button id="slotNext" class="arrow">→</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="details">
+    <h2>Today's outlook</h2>
+    <p id="olSub" class="olsub"></p>
+    <div class="outlook">
+      <button id="olPrev" class="olbtn" aria-label="Previous">‹</button>
+      <div id="olScroll" class="ol-scroll"></div>
+      <button id="olNext" class="olbtn" aria-label="Next">›</button>
+    </div>
+    <h2 class="mt">Weather details <span id="detTime"></span></h2>
+    <div id="grid1" class="grid"></div>
+    <div id="grid2" class="grid"></div>
+  </section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
+<script src="script.js"></script>
+<script src="extras.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
